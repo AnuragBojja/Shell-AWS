@@ -9,4 +9,4 @@ echo "Sum is = $Total"
 
 Names=("Anurag","Keerthi","Anu","Keke")
 
-echo "All names are $(Names[*])
+echo "All names are $(Names[@])
