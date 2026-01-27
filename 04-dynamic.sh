@@ -1,5 +1,8 @@
 #!/bin/bash
 
-Date=$(date)
+StartTime=$(date +%s)
 
-echo "timestamp executed: $Date"
+sleep 20 &
+EndTime=$(date +%s)
+TotalTime=((EndTime-StartTime))
+echo "Total time in seconds : $TotalTime"
