@@ -1,7 +1,7 @@
 #!/bin/bash
 
-PERSON1="Anurag"
-PERSON2="Keerthi"
+PERSON1=$1
+PERSON2=$2
 echo "Hello, $PERSON1 and $PERSON2!"
 echo "Welcome to the scripting world."
 echo "This script demonstrates variable usage in bash."
