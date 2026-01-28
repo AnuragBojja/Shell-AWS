@@ -5,4 +5,4 @@ Y="\e[33m"
 N="\e[0m"
 
 echo -e "$R Hello World $N"
-echo "$G test this $N"
+echo -e "$G test this $N"
