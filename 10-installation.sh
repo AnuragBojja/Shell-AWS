@@ -4,5 +4,5 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-echo "$R Hello World"
+echo -e "$R Hello World "
 echo "test this"
