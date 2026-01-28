@@ -7,11 +7,20 @@ if [ $USERID -ne 0 ]; then
     exit 1 
 fi
 
-dnf install mysql -y
+VALIDATE(){
+    if [ $1 -ne 0 ]; then 
+        echo "ERROR: installing $2 is failure"
+        exit 1
+    else
+        echo "Installing $2 is success"
+    fi
+}
 
-if [ $? -ne 0 ]; then 
-    echo "ERROR: installing mysql is failure"
-    exit 1
-else
-    echo "Installing mysql is success"
-fi
+dnf install mysql -y
+VALIDATE $? "MySql"
+
+dnf install nginx -y
+VALIDATE $? "Nginx"
+
+dnf install mongodb-mongosh -y
+VALIDATE $? "mongodb-mongosh"
