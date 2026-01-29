@@ -11,4 +11,5 @@ else
     echo "This files running with Root User"
 fi
 
+dnf install mysql
 
