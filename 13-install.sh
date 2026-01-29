@@ -15,6 +15,7 @@ VALIDATOR(){
         exit 1
     else
         echo "Installing $2 SUCCESS"
+    fi
 }
 
 dnf install mysql -y
