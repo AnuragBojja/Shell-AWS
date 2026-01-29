@@ -4,7 +4,7 @@
 USERID=$(id -u)
 
 
-if [ $? -ne 0]; then
+if [ $? -ne 0 ]; then
     echo "Run this file with Root User"
     exit 1
 else 
