@@ -24,11 +24,29 @@ VALIDATOR(){
     echo "..................................." &>> "$LOGFILE"
 }
 
-dnf install mysql -y &>> "$LOGFILE"
-VALIDATOR $? "MySQL"
+echo "..................................." &>> "$LOGFILE"
+dnf list installed mysql &>> "$LOGFILE"
+if [ $? -ne 0 ]; then
+    dnf install mysql -y &>> "$LOGFILE"
+    VALIDATOR $? "MySQL"
+else
+    echo "MySQL is Already Installed" &>> "$LOGFILE"
+fi
 
-dnf install python3 -y &>> "$LOGFILE"
-VALIDATOR $? "Python3"
+echo "..................................." &>> "$LOGFILE"
+dnf list installed python3 &>> "$LOGFILE"
+if [ $? -ne 0 ]; then
+    dnf install python3 -y &>> "$LOGFILE"
+    VALIDATOR $? "Python3"
+else
+    echo "Python3 is Already Installed" &>> "$LOGFILE"
+fi
 
-dnf install nginx -y &>> "$LOGFILE"
-VALIDATOR $? "Nginx"
+echo "..................................." &>> "$LOGFILE"
+dnf list installed nginx &>> "$LOGFILE"
+if [ $? -ne 0 ]; then
+    dnf install nginx -y &>> "$LOGFILE"
+    VALIDATOR $? "Nginx"
+else
+    echo "Nginx is Already Installed" &>> "$LOGFILE"
+fi
