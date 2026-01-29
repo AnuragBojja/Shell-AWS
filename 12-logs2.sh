@@ -1,7 +1,10 @@
 #!/bin/bash
 
 USERID=$(id -u)
-
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 LOGFOLDER="/var/log/shell-logs"
 mkdir -p "$LOGFOLDER"
 LOGFILENAME=$( echo $0 | cut -d "." -f1)
@@ -21,32 +24,32 @@ VALIDATOR(){
     else
         echo "ERROR Installation $2"
     fi 
-    echo "..................................." &>> "$LOGFILE"
+    echo -g "$G ................................... $N" &>> "$LOGFILE"
 }
 
-echo "..................................." &>> "$LOGFILE"
+echo "$G ................................... $N" &>> "$LOGFILE"
 dnf list installed mysql &>> "$LOGFILE"
 if [ $? -ne 0 ]; then
     dnf install mysql -y &>> "$LOGFILE"
     VALIDATOR $? "MySQL"
 else
-    echo "MySQL is Already Installed" &>> "$LOGFILE"
+    echo "$G MySQL is Already Installed $N" &>> "$LOGFILE"
 fi
 
-echo "..................................." &>> "$LOGFILE"
+echo "$G ................................... $N" &>> "$LOGFILE"
 dnf list installed python3 &>> "$LOGFILE"
 if [ $? -ne 0 ]; then
     dnf install python3 -y &>> "$LOGFILE"
     VALIDATOR $? "Python3"
 else
-    echo "Python3 is Already Installed" &>> "$LOGFILE"
+    echo "$G Python3 is Already Installed $N" &>> "$LOGFILE"
 fi
 
-echo "..................................." &>> "$LOGFILE"
+echo "$G ................................... $N" &>> "$LOGFILE"
 dnf list installed nginx &>> "$LOGFILE"
 if [ $? -ne 0 ]; then
     dnf install nginx -y &>> "$LOGFILE"
     VALIDATOR $? "Nginx"
 else
-    echo "Nginx is Already Installed" &>> "$LOGFILE"
+    echo "$G Nginx is Already Installed $N" &>> "$LOGFILE"
 fi
