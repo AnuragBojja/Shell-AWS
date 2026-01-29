@@ -17,18 +17,18 @@ fi
 
 VALIDATOR(){
     if [ $1 -eq 0 ]; then
-        echo "Installing $2 SUCCESSFUL"
+        echo "Installing $2 SUCCESSFUL" &>> $LOGFILE
     else
         echo "ERROR Installation $2"
     fi 
-    echo "...."
-    echo "...."
-    echo "...."
-    echo "...."
-    echo "...."
-    echo "...."
-    echo "...."
-    echo "...."
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
+    echo "...." &>> $LOGFILE
 }
 
 dnf install mysql -y &>> $LOGFILE
