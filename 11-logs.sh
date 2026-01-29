@@ -63,9 +63,9 @@ else
 
 fi 
 
-echo "..."
-echo "..."
-echo "..."
-echo "..."
-echo "..."
-echo "..."
+echo "..." | tee -a $LOG_FILE
+echo "..." | tee -a $LOG_FILE
+echo "..." | tee -a $LOG_FILE
+echo "..." | tee -a $LOG_FILE
+echo "..." | tee -a $LOG_FILE
+echo "..." | tee -a $LOG_FILE
