@@ -21,12 +21,10 @@ fi
 VALIDATE(){
     if [ $1 -ne 0 ]; then 
         echo -e "$R ERROR: installing $2 is failure $N" | tee -a $LOG_FILE
-        echo -e "$Y Script started executed at $(date) $N" | tee -a $LOG_FILE
     
         exit 1
     else
         echo -e "$G Installing $2 is success$N" | tee -a $LOG_FILE
-        echo -e "$Y Script started executed at $(date) $N" | tee -a $LOG_FILE
     
     fi
 }
@@ -38,7 +36,6 @@ if [ $? -ne 0 ]; then
     VALIDATE $? "MySql"
 else
     echo -e "$Y MySql is Already Installed $N" | tee -a $LOG_FILE
-    echo -e "$Y Script started executed at $(date) $N" | tee -a $LOG_FILE
 
 fi 
 
@@ -49,7 +46,6 @@ if [ $? -ne 0 ]; then
     VALIDATE $? "Nginx"
 else
     echo -e "$Y Nginx is Already Installed $N" | tee -a $LOG_FILE
-    echo -e "$Y Script started executed at $(date) $N" | tee -a $LOG_FILE
 
 fi 
 
@@ -59,7 +55,6 @@ if [ $? -ne 0 ]; then
     VALIDATE $? "python3"
 else 
     echo -e "$Y Python is Alredy Installed $N" | tee -a $LOG_FILE
-    echo -e "$Y Script started executed at $(date) $N" | tee -a $LOG_FILE
 
 fi 
 

@@ -11,5 +11,8 @@ else
     echo "This files running with Root User"
 fi
 
-dnf install mysql
-
+dnf install mysql -y
+if [ $? -eq 0 ]; then
+    echo "Installing mysql SUCCESS"
+else
+    echo "ERROR Installation mysql"
