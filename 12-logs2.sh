@@ -10,12 +10,16 @@ if [ $USERID -ne 0 ]; then
 else 
     echo "This files running with Root User"
 fi
+
 VALIDATOR(){
     if [ $1 -eq 0 ]; then
-        echo "Installing $2 SUCCESS"
+        echo "Installing $2 SUCCESSFUL"
     else
         echo "ERROR Installation $2"
     fi 
 }
 dnf install mysql -y
 VALIDATOR $? "MySQL"
+
+dnf install python3 -y
+VALIDATOR $? "Python3"
