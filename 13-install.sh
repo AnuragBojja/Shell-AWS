@@ -29,3 +29,5 @@ INSTALLING_APPLICATION(){
         echo "$pkg Already Installed"
     fi 
 }
+INSTALLING_APPLICATION mysql
+INSTALLING_APPLICATION nginx
