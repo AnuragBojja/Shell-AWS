@@ -21,10 +21,10 @@ VALIDATOR(){
 
 INSTALLING_APPLICATION(){
     local pkg="$1"
-    dnf list installed "pkg"
+    dnf list installed "$pkg"
     if [ $? -ne 0 ]; then 
-        dnf install "pkg" -y
-        VALIDATOR $? "pkg"
+        dnf install "$pkg" -y
+        VALIDATOR $? "$pkg"
     else
         echo "$pkg Already Installed"
     fi 
