@@ -5,7 +5,7 @@ SECURITY_GROUP="sg-0c38430134803699d"
 
 #echo "Creating EC2 Instance with AMI: $AIM and Security Group: $SECURITY_GROUP"
 
-for instance in $@;
+for instance in $@
 do 
     echo "Creating EC2 Instance: $instance"
     INSTANCE_ID=$(aws ec2 run-instances --image-id $AIM --instance-type t3.micro --security-group-ids $SECURITY_GROUP --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$instance}]" --query 'Instances[0].InstanceId' --output text)
