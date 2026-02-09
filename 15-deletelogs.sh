@@ -26,3 +26,7 @@ if [ ! -d $SOURCE_DIR ]; then
     echo "There is no such directory as $SOURCE_DIR"
 fi
 echo -e "$G $SOURCE_DIR Found $N"
+
+FILE_TO_DELETE="find $SOURCE_DIR -name "*.log" -type f -mtime +14"
+
+echo "Files are $FILE_TO_DELETE"
