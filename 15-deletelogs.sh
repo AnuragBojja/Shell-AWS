@@ -1,5 +1,5 @@
 #!/bin/bash
-
+USERID=$($?)
 LOGFOLDER="/var/log/shell-logs"
 mkdir -p "$LOGFOLDER"
 LOGFILENAME=$( echo $0 | cut -d "." -f1)
