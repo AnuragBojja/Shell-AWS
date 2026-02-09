@@ -1,4 +1,9 @@
 #!/bin/bash
+
+R="\e[31m"
+G="\e[32m"
+Y="\e[33m"
+N="\e[0m"
 USERID=($?)
 LOGFOLDER="/var/log/shell-logs"
 mkdir -p "$LOGFOLDER"
@@ -20,4 +25,4 @@ SOURCE_DIR="/home/ec2-user/app-logs"
 if [ ! -d $SOURCE_DIR ]; then
     echo "There is no such directory as $SOURCE_DIR"
 fi
-echo "$SOURCE_DIR Found"
+echo -e "$G $SOURCE_DIR Found $N"
