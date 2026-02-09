@@ -20,3 +20,4 @@ SOURCE_DIR="/home/ec2-user/app-logs"
 if [ ! -d $SOURCE_DIR ]; then
     echo "There is no such directory as $SOURCE_DIR"
 fi
+echo "$SOURCE_DIR Found"
