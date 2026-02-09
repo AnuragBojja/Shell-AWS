@@ -27,6 +27,6 @@ if [ ! -d $SOURCE_DIR ]; then
 fi
 echo -e "$G $SOURCE_DIR Found $N"
 
-FILE_TO_DELETE="find $SOURCE_DIR -name "*.log" -type f -mtime +14"
+FILE_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtime +14)S
 
 echo "Files are $FILE_TO_DELETE"
