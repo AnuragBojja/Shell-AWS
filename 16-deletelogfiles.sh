@@ -43,7 +43,10 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +"$DAYS")
 
 if [ ! -z "${FILES}" ]; then 
     echo -e "$G Files Found $FILES $N"
-
+    TIMESTAMP=$(date +%F-%H-%M)
+    ZIP_FILE="$DEST_FILE/app-logs-$TIMESTAMP.zip"
+    echo -e "$Y Zip File Name : $N $ZIP_FILE"
+    
 else echo -e "$R NO Files Found $N"
     exit 1
 fi
