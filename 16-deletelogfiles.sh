@@ -43,5 +43,6 @@ FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +"$DAYS")
 
 if [ ! -z "$FILES" ]; then 
     echo -e "$G Files Found $N"
-else echo "$R NO Files Found $N"
+else echo -e "$R NO Files Found $N"
+    exit 1
 fi
