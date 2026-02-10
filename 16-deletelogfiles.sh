@@ -11,7 +11,7 @@ LOGFILENAME=$( echo $0 | cut -d "." -f1)
 LOGFILE="$LOGFOLDER/$LOGFILENAME.log"
 SOURCE_DIR=($1)
 DEST_FILE=($2)
-FILE_TIMELINE=$($3:+14)
+FILE_TIMELINE=${3:-14}
 echo "Script started executed at: $(date)"
 
 if [ "$USERID" -ne 0 ]; then
