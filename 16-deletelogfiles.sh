@@ -8,7 +8,8 @@ USERID=$(id -u)
 LOGFOLDER="/var/log/shell-logs"
 mkdir -p "$LOGFOLDER"
 LOGFILENAME=$( echo $0 | cut -d "." -f1)
-LOGFILE="$LOGFOLDER/$LOGFILENAME.log"
+#LOGFILE="$LOGFOLDER/$LOGFILENAME.log"
+LOGFILE="$LOGFOLDER/backup.log"
 SOURCE_DIR="$1"
 DEST_FILE="$2"
 DAYS=${3:-14}
@@ -47,10 +48,15 @@ if [ ! -z "${FILES}" ]; then
     ZIP_FILE="$DEST_FILE/app-logs-$TIMESTAMP.zip"
     echo -e "$Y Zip File Name : $N $ZIP_FILE"
     find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS" | zip -@ -j "$ZIP_FILE"
-    if [ -f "$ZIP_FILE" ]; then
-        echo -e "$G Archiving FIles .... SUCCESS $N"
+    if [ $? -eq 0 ]; then
+        if [ -f "$ZIP_FILE" ]; then
+            echo -e "$G Archiving FIles .... SUCCESS $N"
+        else
+            echo -e "$R Archiving FIles .... FAILD $N"
+            exit 1
+        fi
     else
-        echo -e "$R Archiving FIles .... FAILD $N"
+        echo -e "$R FAILED ZIPPING FILES $N"
         exit 1
     fi
 else 
