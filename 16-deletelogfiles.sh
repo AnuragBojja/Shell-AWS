@@ -41,7 +41,6 @@ fi
 echo -e "$Y $DEST_FILE Found $N"
 FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +"$DAYS")
 
-while IFS= read -r file
-do
-    echo "Files Found at $file"
-done <<< "$FILES"
+if [ ! -z "$FILES" ]; then 
+    echo -e "$G Files Found $N"
+else echo "$R NO Files Found $N"
