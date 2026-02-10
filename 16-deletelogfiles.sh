@@ -39,7 +39,7 @@ if [ ! -d $DEST_FILE ]; then
     exit 1
 fi
 echo -e "$Y $DEST_FILE Found $N"
-FILE_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtime +$FILE_TIMELINE)
+FILE_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtime +"$FILE_TIMELINE")
 
 while IFS= read -r file
 do
