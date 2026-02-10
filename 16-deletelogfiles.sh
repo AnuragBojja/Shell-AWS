@@ -47,6 +47,18 @@ if [ ! -z "${FILES}" ]; then
     ZIP_FILE="$DEST_FILE/app-logs-$TIMESTAMP.zip"
     echo -e "$Y Zip File Name : $N $ZIP_FILE"
     find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS" | zip -@ -j "$ZIP_FILE"
+    if [ -f "$ZIP_FILE" ]; then
+        echo -e "$G Archiving FIles .... SUCCESS $N"
+    else
+        echo -e "$R Archiving FIles .... FAILD $N"
+        exit 1
 else echo -e "$R NO Files Found $N"
     exit 1
 fi
+
+while IFS= read -r file
+do
+  echo "Processing file: $file"
+  rm -rf "$file"
+  echo "deleted file $file"
+done <<< "$FILES"
