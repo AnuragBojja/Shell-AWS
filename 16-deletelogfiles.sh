@@ -22,9 +22,9 @@ else
     echo "This files running with Root Privilage" &>> "$LOGFILE"
     echo "This files running with Root Privilage"
 fi
-echo "Give Input as <file-name> <source-dir> <dest-dir> <how-older-files>(Optional) default 14days older files"
+echo "$Y Give Input as <file-name> <source-dir> <dest-dir> <how-older-files>(Optional) default 14days older files $N"
 if [ $# -le 2 ]; then
-    echo "Please enter in this formate $Y <file-name> <source-dir> <dest-dir> <how-older-files>(Optional) default 14days older files $N"
+    echo -e "Please enter in this formate $Y <file-name> <source-dir> <dest-dir> <how-older-files>(Optional) default 14days older files $N"
     exit 1
 fi
 if [ ! -d $SOURCE_DIR ]; then
