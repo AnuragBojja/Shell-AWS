@@ -4,7 +4,7 @@ R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
-USERID="$?"
+USERID=$(id -u))
 LOGFOLDER="/var/log/shell-logs"
 mkdir -p "$LOGFOLDER"
 LOGFILENAME=$( echo $0 | cut -d "." -f1)
@@ -39,14 +39,14 @@ if [ ! -d "$DEST_FILE" ]; then
     exit 1
 fi
 echo -e "$Y Directory $DEST_FILE Found $N"
-FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +"$DAYS")
+FILES=$(find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS")
 
 if [ ! -z "${FILES}" ]; then 
     echo -e "$G Files Found $FILES $N"
     TIMESTAMP=$(date +%F-%H-%M)
     ZIP_FILE="$DEST_FILE/app-logs-$TIMESTAMP.zip"
     echo -e "$Y Zip File Name : $N $ZIP_FILE"
-    
+    find "$SOURCE_DIR" -name "*.log" -type f -mtime +"$DAYS" | zip -@ -j "$ZIP_FILE"
 else echo -e "$R NO Files Found $N"
     exit 1
 fi
