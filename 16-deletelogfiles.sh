@@ -26,7 +26,7 @@ USAGE(){
     echo -e "$Y USAGE::sudo sh <file-name>.sh <source-dir> <dest-dir> <how-older-files>(Optional) default 14days older files $N"
     exit 1
 }
-if [ $# -le 2 ] || [ $# -gt 3 ]; then
+if [ $# -lt 2 ] || [ $# -gt 3 ]; then
     USAGE
 fi
 if [ ! -d "$SOURCE_DIR" ]; then
