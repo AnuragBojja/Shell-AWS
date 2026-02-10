@@ -33,16 +33,17 @@ if [ ! -d "$SOURCE_DIR" ]; then
     echo -e "$R There is no such directory as $SOURCE_DIR $N"
     exit 1
 fi
-echo -e "$Y $SOURCE_DIR Found $N"
+echo -e "$Y Directory $SOURCE_DIR Found $N"
 if [ ! -d "$DEST_FILE" ]; then
     echo -e "$R There is no such directory as $DEST_FILE $N"
     exit 1
 fi
-echo -e "$Y $DEST_FILE Found $N"
+echo -e "$Y Directory $DEST_FILE Found $N"
 FILES=$(find $SOURCE_DIR -name "*.log" -type f -mtime +"$DAYS")
 
-if [ ! -z "$FILES" ]; then 
-    echo -e "$G Files Found $N"
+if [ ! -z "${FILES}" ]; then 
+    echo -e "$G Files Found $FILES $N"
+
 else echo -e "$R NO Files Found $N"
     exit 1
 fi
