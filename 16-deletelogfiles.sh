@@ -22,13 +22,13 @@ fi
 
 SOURCE_DIR="/home/ec2-user/app-logs"
 if [ ! -d $SOURCE_DIR ]; then
-    echo "There is no such directory as $SOURCE_DIR"
+    echo -e "$R There is no such directory as $SOURCE_DIR $N"
     exit 1
 fi
 echo -e "$Y $SOURCE_DIR Found $N"
 DEST_FILE="/home/ec2-user/dest-logs"
 if [ ! -d $DEST_FILE ]; then
-    echo "There is no such directory as $DEST_FILE"
+    echo -e "$R There is no such directory as $DEST_FILE $N"
     exit 1
 fi
 echo -e "$Y $DEST_FILE Found $N"
