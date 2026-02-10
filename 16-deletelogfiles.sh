@@ -52,7 +52,9 @@ if [ ! -z "${FILES}" ]; then
     else
         echo -e "$R Archiving FIles .... FAILD $N"
         exit 1
-else echo -e "$R NO Files Found $N"
+    fi
+else 
+    echo -e "$R NO Files Found $N"
     exit 1
 fi
 
