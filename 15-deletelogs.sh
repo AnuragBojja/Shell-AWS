@@ -29,6 +29,7 @@ echo -e "$Y $SOURCE_DIR Found $N"
 
 FILE_TO_DELETE=$(find $SOURCE_DIR -name "*.log" -type f -mtime +14)
 
-while IFS= read -r -d file; do
+while IFS= read -r file
+do
   echo "Processing file: $file"
 done <<< FILE_TO_DELETE
