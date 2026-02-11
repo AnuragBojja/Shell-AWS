@@ -14,7 +14,7 @@ do
         MESSAGE+="High Usage from $IP_ADDRESS on $PART :: $USAGE % <br>"
     fi
 done <<< $DISK_USAGE
-SHELL_MESSAGE=$(sed -e "s/<br>/\n/g" $MESSAGE)
+SHELL_MESSAGE=$(sed "s/<br>/\n/g" $MESSAGE)
 echo -e "message body : $SHELL_MESSAGE"
 #printf '%s' "$MESSAGE" #| sed -e 's/[]\/$*.^[]/\\&/g'
 sh 18-mail.sh "anuragbojja19@gmail.com" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
