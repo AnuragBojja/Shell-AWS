@@ -11,7 +11,12 @@ HTML_BODY=$(printf '%s' "$EMAIL_BODY" | sed 's/$/<br>/')
 ESCAPED_BODY=$(printf '%s' "$HTML_BODY" | sed -e 's/[\\&|]/\\&/g')IP_ADDRESS=$5
 TO_TEAM=$6
 
-FINAL_BODY=$(sed -e "s/TO_TEAM/$TO_TEAM/g" -e "s/ALERT_TYPE/$ALERT_TYPE/g" -e "s/IP_ADDRESS/$IP_ADDRESS/g" -e "s/EMAIL_BODY/$ESCAPED_BODY/g" template.html)
+FINAL_BODY=$(sed \
+  -e "s|TO_TEAM|$TO_TEAM|g" \
+  -e "s|ALERT_TYPE|$ALERT_TYPE|g" \
+  -e "s|IP_ADDRESS|$IP_ADDRESS|g" \
+  -e "s|EMAIL_BODY|$ESCAPED_BODY|g" \
+  template.html)
 {
 echo "To: $TO_ADDRESS"
 echo "Subject: $SUBJECT"
