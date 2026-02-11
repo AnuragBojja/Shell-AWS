@@ -11,10 +11,11 @@ do
     #echo "The usage of part $PART is $USAGE Per" 
     if [ $USAGE -gt $SPACE ]; then
         #echo "High Usage on $PART :: $USAGE Percentage"
-        MESSAGE+="High Usage from $IP_ADDRESS on $PART :: $USAGE % \n"
+        MESSAGE+="High Usage from $IP_ADDRESS on $PART :: $USAGE % <br>"
     fi
 done <<< $DISK_USAGE
-echo -e "message body : $MESSAGE"
+SHELL_MESSAGE=$(sed -e "s/<br>/\n/g" $MESSAGE)
+echo -e "message body : $SHELL_MESSAGE"
 #printf '%s' "$MESSAGE" #| sed -e 's/[]\/$*.^[]/\\&/g'
 sh 18-mail.sh "anuragbojja19@gmail.com" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
 
