@@ -15,7 +15,7 @@ do
     fi
 done <<< $DISK_USAGE
 
-echo -e "message body : $MESSAGE"
+echo "message body : $MESSAGE"
 #printf '%s\n' "$MESSAGE" | sed -e 's/[]\/$*.^[]/\\&/g'
 #sh 18-mail.sh "anuragbojja19@gmail.com" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
 
