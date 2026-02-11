@@ -16,7 +16,7 @@ do
 done <<< $DISK_USAGE
 FORMATE_MESSAGE=$MESSAGE
 #echo -e "message body : $MESSAGE"
-printf '%s' "$FORMATE_MESSAGE" | sed -e 's/[]\/$*.^[]/\\&/g'
+printf '%s' "$FORMATE_MESSAGE" #| sed -e 's/[]\/$*.^[]/\\&/g'
 #sh 18-mail.sh "anuragbojja19@gmail.com" "High Disk Usage Alert" "High Disk Usage" "$MESSAGE" "$IP_ADDRESS" "DevOps Team"
 
 # TO_ADDRESS=$1
