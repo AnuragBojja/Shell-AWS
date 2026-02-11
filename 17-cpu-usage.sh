@@ -11,8 +11,8 @@ do
     #echo "The usage of part $PART is $USAGE Per" 
     if [ $USAGE -gt $SPACE ]; then
         #echo "High Usage on $PART :: $USAGE Percentage"
-        MESSAGE+="High Usage from $IP_ADDRESS on $PART :: $USAGE %"
+        MESSAGE+="High Usage from $IP_ADDRESS on $PART :: $USAGE % \n"
     fi
 done <<< $DISK_USAGE
 
-echo "message body : $MESSAGE"
+echo -e "message body : $MESSAGE"
